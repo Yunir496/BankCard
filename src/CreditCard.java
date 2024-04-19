@@ -13,11 +13,12 @@ public class CreditCard extends BankCard {
         if (amount < 0 || amount > (balance + creditBalance)) {
             return false;
         }
-        if (balance - amount > 0) {
+        if (balance - amount >= 0) {
             balance -= amount;
             return true;
         }
         creditBalance = (creditBalance + balance) - amount;
+        balance = 0;
         return true;
     }
 
